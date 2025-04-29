@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -39,8 +40,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
     ];
 
     /**
@@ -57,11 +56,48 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    /**
+     * Check if user has a specific role
+     */
+    public function hasRole(string $role): bool
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->role === $role;
+    }
+
+    /**
+     * Check if user is an employer
+     */
+    public function isEmployer(): bool
+    {
+        return $this->role === 'employer';
+    }
+
+    /**
+     * Check if user is a job seeker
+     */
+    public function isJobSeeker(): bool
+    {
+        return $this->role === 'job_seeker';
+    }
+
+    /**
+     * Check if user is HR
+     */
+    public function isHR(): bool
+    {
+        return $this->hasRole('hr');
+    }
+
+    /**
+     * Check if user is a superuser
+     */
+    public function isSuperuser(): bool
+    {
+        return $this->hasRole('superuser');
     }
 }
