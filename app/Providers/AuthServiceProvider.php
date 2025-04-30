@@ -21,12 +21,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('access-employer-dashboard', function ($user) {
-            return $user->role === 'employer';
-        });
-
-        Gate::define('access-job-seeker-dashboard', function ($user) {
-            return $user->role === 'job_seeker';
-        });
+        $this->registerPolicies();
     }
 } 

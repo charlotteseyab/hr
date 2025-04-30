@@ -29,7 +29,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
         'role',
+        'how_heard',
     ];
 
     /**
@@ -40,6 +42,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -78,6 +82,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if user is an admin
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
      * Check if user is a job seeker
      */
     public function isJobSeeker(): bool
@@ -90,7 +102,7 @@ class User extends Authenticatable
      */
     public function isHR(): bool
     {
-        return $this->hasRole('hr');
+        return $this->role === 'hr';
     }
 
     /**
@@ -98,6 +110,22 @@ class User extends Authenticatable
      */
     public function isSuperuser(): bool
     {
-        return $this->hasRole('superuser');
+        return $this->role === 'superuser';
+    }
+
+    /**
+     * Check if user has any of the specified roles
+     */
+    public function hasAnyRole(array $roles): bool
+    {
+        return in_array($this->role, $roles);
+    }
+
+    /**
+     * Check if user has all of the specified roles
+     */
+    public function hasAllRoles(array $roles): bool
+    {
+        return $this->role === 'superuser' || in_array($this->role, $roles);
     }
 }

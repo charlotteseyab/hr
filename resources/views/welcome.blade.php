@@ -604,9 +604,9 @@
         </section>
 
             <!-- CTA Section -->
-            <div class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700">
-                <div class="absolute inset-0 opacity-10">
-                    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <div style="position: relative; overflow: hidden; background: linear-gradient(to right, #2563eb, #1d4ed8);">
+                <div style="position: absolute; inset: 0; opacity: 0.1;">
+                    <svg style="width: 100%; height: 100%;" viewBox="0 0 100 100" preserveAspectRatio="none">
                         <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid)" />
                         <defs>
                             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -615,17 +615,17 @@
                         </defs>
                     </svg>
                 </div>
-                <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 relative">
-                    <div class="text-center">
-                        <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
-                            <span class="block">Ready to transform your HR?</span>
-                            <span class="block mt-2 text-blue-200">Start your journey today.</span>
+                <div style="max-width: 80rem; margin: 0 auto; padding: 4rem 1rem; position: relative;">
+                    <div style="text-align: center;">
+                        <h2 style="font-size: 2.25rem; line-height: 2.5rem; font-weight: 800; color: white;">
+                            <span style="display: block;">Ready to transform your HR?</span>
+                            <span style="display: block; margin-top: 0.5rem; color: #bfdbfe;">Start your journey today.</span>
                         </h2>
-                        <div class="mt-8 flex justify-center">
+                        <div style="margin-top: 2rem; display: flex; justify-content: center;">
                             <a href="{{ route('register') }}" 
-                               class="inline-flex items-center px-8 py-3 rounded-lg bg-white text-blue-600 font-medium hover:bg-blue-50 transform hover:scale-105 transition-all duration-200 shadow-xl">
+                               style="display: inline-flex; align-items: center; padding: 0.75rem 2rem; border-radius: 0.5rem; background: white; color: #2563eb; font-weight: 500; transition: all 0.2s; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
                                 Get Started
-                                <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg style="margin-left: 0.5rem; margin-right: -0.25rem; width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                 </svg>
                             </a>

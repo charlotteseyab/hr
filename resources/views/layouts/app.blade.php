@@ -19,6 +19,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <!-- Alpine.js Global Store for mobileMenu -->
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.store('mobileMenu', { open: false });
+            });
+        </script>
+
         <!-- Styles -->
         @livewireStyles
     </head>
